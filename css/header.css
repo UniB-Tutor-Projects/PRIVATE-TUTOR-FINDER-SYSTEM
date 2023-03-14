@@ -1,0 +1,84 @@
+/*********************top****************/
+.top_1l h4 .span_2{
+    margin-left:48px; 
+     }
+    .top_1l h4 {
+    line-height:0;
+     }
+    .top_1ri1 .span_1{
+    width:40px;
+    height:40px;
+    line-height:40px; 
+     }
+    /*********************top_end****************/
+    
+    /*********************header****************/
+    .navbar-brand{
+    line-height:0;
+    font-size: 1.5rem;
+    display:none;
+    margin-bottom:5px;
+    }
+    .navbar-brand .span_2{
+    margin-left:48px; 
+     }
+    
+    #header .nav-link{
+    color:#1a2844;
+    padding:18px 22px 18px 22px;
+    font-weight:bold;
+     }
+    #header .nav-link:hover{
+    background:#1a2844;
+    color:#fff;
+     }
+    #header .nav-link:focus{
+    background:#1a2844;
+    color:#fff;
+     }
+    #header .active{
+    background:#1a2844;
+    color:#fff;
+     }
+    
+    .drop_1{
+    min-width:220px;
+    padding:0;
+    margin-top:0!important;
+    border:none;
+    background:#fff;
+    border-radius:5px;
+    border:1px solid #a61d372b;
+     }
+    .drop_1 a{
+    padding-top:15px;
+    padding-bottom:15px;
+    border-bottom:1px solid #a61d372b;
+    color:#1a2844;
+    font-weight:bold;
+     }
+    .drop_1 a:hover{
+    color:#a61d37;
+    background:none;
+     }
+    
+    .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:3;
+    }
+    .sticky {
+    top: -40px;
+    transform: translateY(40px);
+    transition: transform .3s;
+    }
+    .sticky .navbar-brand{
+    display:block;
+    }
+    
+    #header .button_1{
+    padding:10px 22px 10px 22px;
+    margin-top:2px;
+     }
+    /*********************header_end****************/
