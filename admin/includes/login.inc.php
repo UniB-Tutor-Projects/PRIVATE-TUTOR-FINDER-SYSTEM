@@ -30,28 +30,28 @@ if (isset($_POST['admin_login_submit'])) {
             $pwdCheck = password_verify($password, $row['admin_password']);
 
             if ($pwdCheck==false) {
-                header("Locaton: ../Login.php?erro=wrongpwd");
+                header("Locaton: ../login.php?erro=wrongpwd");
                 exit();
             }
             else if ($pwdCheck == true) {
                 session_start();
                 $_SESSION['adminName'] = $row['admin_name'];
                 $_SESSION['adminPwd'] = $row['admin_password'];
-                header("Location: ..dashboard.php?login=success");
+                header("Location: ../dashboard.php?login=success");
                 exit();
             }
             else{
-                header("Loaction: ..login.php?error=wrongpwd")
+                header("Loaction: ../login.php?error=wrongpwd")
             }
         }
         else{
-            header("Loaction: ..login.php?error=nouser");
+            header("Loaction: ../login.php?error=nouser");
             exit();
         }
     }
    }
 }
 else{
-    header("Location: ..login.php");
+    header("Location: ../login.php");
     exit();
 }
