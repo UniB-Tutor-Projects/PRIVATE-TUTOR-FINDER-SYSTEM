@@ -1,0 +1,242 @@
+/*
+Template Name: Academy
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+/*********************center_home****************/
+.center_h {
+background-image: url(../img/1.jpg);
+background-position: center;
+}
+.center_hm {
+background: #0000009c;
+}
+.form-check-input:checked{
+background:#1a2844;
+border-color:#1a2844; 
+ }
+.form-check-input:checked[type=radio]{
+background-image:none; 
+ }
+.center_h1l{
+padding-top:150px; 
+ }
+.center_h1r .button_1:hover{
+background:#1a2844;
+ }
+/*********************center_home_end****************/
+
+/*********************course****************/
+.course_2 .nav-tabs {
+border:none; 
+}
+.course_2 .nav-tabs .nav-link {
+border-radius: 5px;
+border:1px solid #fff;
+color: #1a2844;
+background:#fdfafb; 
+margin: 0 5px 0px 0px;
+padding: 12px 20px;
+font-weight:bold;
+}
+.course_2 .nav-tabs .nav-link:hover {
+color: #fff;
+background:#a61d37;
+border:1px solid #a61d37;
+}
+.course_2 .nav-tabs .nav-link.active {
+border:1px solid #a61d37;
+color: #fff;
+background:#a61d37;
+}
+/*********************course_end****************/
+
+/*********************learn****************/
+.learn_2i{
+opacity:0.9; 
+cursor:pointer;
+ }
+.learn_2i:hover{
+opacity:1; 
+ }
+.about_h1l2{
+bottom:-70px; 
+ }
+.about_h2{
+margin-top:80px; 
+ }
+
+/*********************learn_end****************/
+
+/*********************event****************/
+.event_1li{
+border-radius:5px 5px 0px 0px; 
+ }
+.event_1li1{
+border-radius:0px 0px 5px 5px; 
+ }
+.event_1r .course_1r .button:hover{
+background:#a61d37; 
+ }
+/*********************event_end****************/
+
+/*********************prize****************/
+.prize_1l{
+padding:80px 100px; 
+ }
+.prize_1lil span{
+width:120px;
+height:120px;
+line-height:120px; 
+ }
+/*********************prize_end****************/
+
+
+@media screen and (max-width : 767px){
+.center_hm {
+padding-top:20px!important;
+padding-bottom:20px!important; 
+ }
+.center_hm br{
+display:none;
+ }
+.center_h1l{
+padding-top:0;
+text-align:center;
+margin-bottom:15px;
+ }
+.center_h1l p{
+text-align:left;
+ }
+.center_h1l h2{
+font-size:22px;
+ }
+.center_h1r h3{
+font-size:22px;
+text-align:center; 
+ }
+.center_h1r .button_1{
+display:block;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+text-align:center; 
+ }
+.spec_1i{
+margin-top:8px;
+margin-bottom:8px; 
+ }
+.course_1r {
+text-align:center!important;
+margin-top:15px; 
+ }
+.course_1l {
+text-align:center;
+ }
+.course_2 .nav-tabs .nav-link{
+margin-top:5px;
+margin-bottom:5px;  
+ }
+.about_h1l img{
+width:100%; 
+ }
+.about_h1l2 {
+position:static!important;
+margin-top:15px; 
+ }
+.about_h1r{
+margin-top:15px;
+text-align:center;
+ }
+.about_h1r p{
+text-align:left;
+ }
+.about_h1r .fw-bold{
+text-align:left; 
+ }
+.about_h2{
+margin-top:20px; 
+ }
+.about_h2l h3{
+text-align:center; 
+ }
+.event_1li1 .button{
+display:block;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+text-align:center;  
+ }
+.event_1r{
+margin-top:15px; 
+ }
+.course_1l p{
+text-align:left;  
+ }
+
+.prize_1l {
+padding:30px 15px;
+text-align:center; 
+ }
+.prize_1l p{
+text-align:left; 
+ }
+.prize_1lir{
+margin-top:15px; 
+ }
+
+ }
+
+@media (min-width:576px) and (max-width:767px) {
+
+
+ }
+@media (min-width:768px) and (max-width:991px) {
+.center_hm {
+padding-top:20px!important;
+padding-bottom:20px!important; 
+ }
+.spec_1i .font_60{ 
+font-size:30px; 
+ }
+.spec_1i h5{ 
+font-size:14px; 
+ }
+.learn_2i h6{
+font-size:12px;  
+ }
+.learn_2i .font_60{ 
+font-size:30px; 
+ }
+.about_h1l img{
+width:100%; 
+ }
+.course_1r .button{
+padding: 1rem 0.5rem;
+ }
+.prize_1l {
+padding:30px 15px;
+ }
+.prize_1lil span {
+width: 80px;
+height: 80px;
+line-height:80px;
+font-size:40px;
+}
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+.course_1r .button{
+padding: 1rem 1rem;
+ }
+.prize_1l {
+padding:30px 15px;
+ }
+ }
+@media (min-width:1201px) and (max-width:1330px) {
+
+ }
+
+

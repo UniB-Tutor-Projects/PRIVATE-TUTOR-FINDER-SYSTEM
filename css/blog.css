@@ -1,0 +1,68 @@
+/*
+Template Name: Academy
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+/*********************about****************/
+.center_blog{
+background-image: url(../img/28.jpg);
+background-position: center;
+}
+.center_blog_dt{
+background-image: url(../img/29.jpg);
+background-position: center; 
+ }
+
+.blog_dt1l1 .tags li a {
+border: 1px solid #a61d372b; 
+padding: 7px 14px;
+font-size: 14px;
+margin: 0 2px 7px 0;
+display: block;
+border-radius: 5px;
+} 
+.blog_dt1l1 .tags li a:hover {
+background:#a61d37;
+color:#fff;
+ }
+/*********************about_end****************/
+
+
+
+@media screen and (max-width : 767px){
+.blog_dt1r{
+margin-top:15px; 
+ }
+.blog_dt1r2il {
+text-align:left!important;
+margin-bottom:10px; 
+ }
+.blog_dt1r3  h3{
+text-align:center;  
+ }
+.blog_dt1r4  h3{
+text-align:center;  
+ }
+.blog_dt1r5  h3{
+text-align:center;  
+ }
+ }
+
+@media (min-width:576px) and (max-width:767px) {
+
+
+ }
+@media (min-width:768px) and (max-width:991px) {
+
+ }
+
+@media (min-width:992px) and (max-width:1200px) {
+
+ }
+@media (min-width:1201px) and (max-width:1330px) {
+
+ }
+
+
