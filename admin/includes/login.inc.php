@@ -20,7 +20,7 @@ if (isset($_POST['admin_login_submit'])) {
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
 <<<<<<< Updated upstream
-        header("Loaction: ../login.php?error=sqlerror");
+        header("Location: ../login.php?error=sqlerror");
 =======
         header("Location: ../login.php?error=sqlerror");
 >>>>>>> Stashed changes
@@ -39,7 +39,7 @@ if (isset($_POST['admin_login_submit'])) {
             $pwdCheck = password_verify($password, $row['admin_password']);
 
             if ($pwdCheck==false) {
-                header("Locaton: ../login.php?erro=wrongpwd");
+                header("Location: ../login.php?erro=wrongpwd");
 =======
         if ($row = mysqli_fetch_assoc($result)) {
             $pwdCheck = password_verify($password, $row['admin_password']);
@@ -58,11 +58,11 @@ if (isset($_POST['admin_login_submit'])) {
             }
             else{
 <<<<<<< Updated upstream
-                header("Loaction: ../login.php?error=wrongpwd")
+                header("Location: ../login.php?error=wrongpwd")
             }
         }
         else{
-            header("Loaction: ../login.php?error=nouser");
+            header("Location: ../login.php?error=nouser");
 =======
                 header("Location: ../login.php?error=wrongpwd");
             }
