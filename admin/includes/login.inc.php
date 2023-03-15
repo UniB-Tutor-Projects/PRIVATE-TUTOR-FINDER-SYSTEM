@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['admin_login_submit'])) {
-   require "..includes/dbh.inc.php";
+   require "..includes/databaseconnection.php";
 
    $adminName = $_POST['admin_name'];
    $password = $_POST['admin_pwd'];
