@@ -1,7 +1,6 @@
 <?php
     require_once('includes/header.php');
 ?>
-
 <section id="center" class="center_h">
  <div class="center_hm pt-5 pb-5">
   <div class="container-xl">
