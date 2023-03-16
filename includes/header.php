@@ -23,7 +23,7 @@
   <div class="row top_1">
    <div class="col-md-4">
     <div class="top_1l">
-	<h4 class="mb-0"><a class="col_brown" href="index.html"><span class="span_1 text-uppercase"><i class="fa fa-graduation-cap text-dark fs-2 align-middle"></i> Academy</span> <br> <span class="font_12 span_2 text-muted fw-normal">University & College</span></a></h4>
+	<h4 class="mb-0"><a class="col_brown" href="index.html"><span class="span_1 text-uppercase"><i class="fa fa-graduation-cap text-dark fs-2 align-middle"></i> Tutor Finder</span> <br> <span class="font_12 span_2 text-muted fw-normal"></span></a></h4>
 	</div>
    </div>
    <div class="col-md-8">
@@ -32,19 +32,19 @@
 	    <div class="col-md-4">
 		 <div class="top_1ri1">
 		  <span class="d-inline-block text-center border_1 span_1 rounded-circle float-start me-2"><i class="fa fa-phone"></i></span>
-		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Call Now</span> <br> +123 4567 890</h6>
+		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Call Now</span> <br> +237 654 312 803</h6>
 		 </div>
 		</div>
 		<div class="col-md-4">
 		 <div class="top_1ri1">
 		  <span class="d-inline-block text-center border_1 span_1 rounded-circle float-start me-2"><i class="fa fa-envelope"></i></span>
-		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Send Message</span> <br> info@gmil.com</h6>
+		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Send Message</span> <br> demgnesyntyche@gmil.com</h6>
 		 </div>
 		</div>
 		<div class="col-md-4">
 		 <div class="top_1ri1">
 		  <span class="d-inline-block text-center border_1 span_1 rounded-circle float-start me-2"><i class="fa fa-map-marker"></i></span>
-		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Our Location</span> <br> 634 Semper Porta</h6>
+		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Our Location</span> <br> Up Station Bamenda</h6>
 		 </div>
 		</div>
 	   </div>
@@ -84,15 +84,15 @@
 		
 		<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Courses
+            Tutors
           </a>
           <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Courses</a></li>
-            <li><a class="dropdown-item border-0" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Course Detail</a></li>
+            <li><a class="dropdown-item" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Tutors</a></li>
+            <li><a class="dropdown-item border-0" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Tutors Detail</a></li>
           </ul>
         </li>
 		
-		<li class="nav-item dropdown">
+	<!--	<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Events
           </a>
@@ -104,18 +104,20 @@
 		<li class="nav-item">
           <a class="nav-link" href="t">Team </a>
         </li>
+-->
 		
 		
 		<li class="nav-item">
           <a class="nav-link" href="">Contact </a>
         </li>
 
-      </ul>
+      <!--</ul>
        <ul class="navbar-nav mb-0 ms-auto">
 		
 		<li class="nav-item">
           <a class="button_1" href="#">Get a Quote </a>
         </li>
+-->
       </ul>
     </div>
 	  </div>
