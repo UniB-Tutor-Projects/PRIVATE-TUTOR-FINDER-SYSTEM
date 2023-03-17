@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
 
                     <div>
                         <button type="submit" class="btn btn-success" name="submit">Save</button>
-                        <a href="dashboard.php" class="btn btn-danger">Cancel</a>
+                        <a href="dashboard.php?msg=No User Added!" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

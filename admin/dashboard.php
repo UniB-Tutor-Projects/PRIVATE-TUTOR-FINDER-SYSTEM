@@ -78,7 +78,7 @@
       
       
       <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color:#00ff5573;">
-            Manage Data!
+            View All Data Records!
       </nav>
 
       <div class="container">
@@ -125,8 +125,8 @@
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['address']; ?></td>
                 <td>
-                  <a href="edit.php?id=<?php echo $row['user_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
-                  <a href="delete.php?id=<?php echo $row['user_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                  <a href="edit_user.php?id=<?php echo $row['user_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+                  <a href="delete_user.php?id=<?php echo $row['user_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
                 </td>
             </tr>
 
@@ -134,6 +134,67 @@
             }
           ?>
             
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container">
+
+        <?php
+          if (isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+          '.$msg.'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+          }
+        ?>
+        <a href="add_tutor.php" class="btn btn-dark mb-3">Add Tutor</a>
+
+        <table class="table table-hover text-center"> 
+          <thead class="table-dark">
+            <tr>
+              <td scope="col">ID</td>
+              <td scope="col">Name</td>
+              <td scope="col">Age</td>
+              <td scope="col">Gender</td>
+              <td scope="col">Certificate</td>
+              <td scope="col">Subject</td>
+              <td scope="col">Phone</td>
+              <td scope="col">Email</td>
+              <td scope="col">Address</td>
+              <td scope="col">Actions</td>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <?php
+                include('../includes/databaseconnection.php');
+                $sql = "SELECT * FROM tutor";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <tr>
+                  <td><?php echo $row['tutor_id']; ?></td>
+                  <td><?php echo $row['tutor_name']; ?></td>
+                  <td><?php echo $row['age']; ?></td>
+                  <td><?php echo $row['gender']; ?></td>
+                  <td><?php echo $row['certificate']; ?></td>
+                  <td><?php echo $row['subject_tutoring']; ?></td>
+                  <td><?php echo $row['tutor_phone']; ?></td>
+                  <td><?php echo $row['tutor_email']; ?></td>
+                  <td><?php echo $row['tutor_address']; ?></td>
+                  <td>
+                    <a href="edit_tutor.php?id=<?php echo $row['tutor_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+                    <a href="delete_tutor.php?id=<?php echo $row['tutor_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                  </td>
+                </tr>
+
+                <?php
+              }
+            ?>
+      
           </tbody>
         </table>
       </div>

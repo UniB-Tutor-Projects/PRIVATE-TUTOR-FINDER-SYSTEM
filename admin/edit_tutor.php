@@ -1,6 +1,7 @@
 <?php
 
 include('../includes/databaseconnection.php');
+$id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
     $tutor_name = $_POST['tutor_name'];
@@ -13,7 +14,7 @@ if (isset($_POST['submit'])) {
     $tutor_address = $_POST['tutor_address'];
     $tutor_pwd = $_POST['tutor_pwd'];
 
-    if (empty($tutor_name)||empty($tutor_email)||empty($tutor_pwd)||empty($tutor_address)||empty($tutor_gender)) {
+    if (empty($tutor_name)||empty($tutor_email)||empty($tutor_address)||empty($tutor_gender)) {
 		
 		header("Location: dashboard.php?msg=Empty Fields");
 		exit();
@@ -35,38 +36,12 @@ if (isset($_POST['submit'])) {
 	}
 
     else{
-        $sql = "SELECT tutor_name FROM tutor where tutor_name = ?";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-		echo "Failed: ".mysqli_error($conn);
-	    }
-        else{
-            mysqli_stmt_bind_param($stmt, "s", $tutor_name);
-		    mysqli_stmt_execute($stmt);
-
-		    mysqli_stmt_store_result($stmt);
-
-		    $resultCheck = mysqli_stmt_num_rows($stmt);
-
-		    if ($resultCheck>0) {
-			    header("Location: dashboard.php?msg=Tutor Name Taken");
-			    exit();
-            }
         
-            else{
-                $sql = "INSERT INTO tutor(tutor_name, age, gender, certificate, subject_tutoring,tutor_phone,tutor_email,tutor_address,tutor_pwd) VALUES(?,?,?,?,?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "Failed: ".mysqli_error($conn);
-                }
-                else{
-                    $hashedPwd = password_hash($tutor_pwd, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt,"sssssssss",$tutor_name,$tutor_age,$tutor_gender, $tutor_certificate,$tutor_subject,$tutor_phone,$tutor_email,$tutor_address,$hashedPwd);
-                    mysqli_stmt_execute($stmt);
-                    header("Location: dashboard.php?msg=New Tutor record created successfully!");
-                    exit();
-                }
-            }
+        $sql = "UPDATE `tutor` SET `tutor_name`='$tutor_name',`age`='$tutor_age',`gender`='$tutor_gender',`certificate`='$tutor_certificate',`subject_tutoring`='$tutor_subject',`tutor_phone`='$tutor_phone',`tutor_email`='$tutor_email',`tutor_address`='$tutor_address' WHERE tutor_id=$id";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            header("Location: dashboard.php?msg=Data Updated successfully!");
+            exit();
         }
     }
 }
@@ -80,7 +55,7 @@ if (isset($_POST['submit'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <title>Add Tutor</title>
+        <title>Edit Tutor</title>
     </head>
 
     <body>
@@ -90,8 +65,16 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
             <div class="text-center" mb-4>
-                <h3>Add New Tutor</h3>
-                <p class="text-muted">Complete the below form to add a new Tutor!</p>
+                <h3>Edit Tutor Information</h3>
+                <p class="text-muted">Click Update after updating any information!</p>
+
+                <?php
+               
+                    $sql = "SELECT * FROM tutor WHERE tutor_id = $id LIMIT 1";
+                    $result = mysqli_query($conn,$sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                ?>
             </div>
 
             <div class="container d-flex justify-content-center">
@@ -99,58 +82,54 @@ if (isset($_POST['submit'])) {
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Tutor Name:</label>
-                            <input type="text" class="form-control" name="tutor_name" placeholder="Tutor Name">
+                            <input type="text" class="form-control" name="tutor_name" value="<?php echo $row['tutor_name']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">Tutor Age:</label>
-                            <input type="text" class="form-control" name="tutor_age" placeholder="Age">
+                            <input type="text" class="form-control" name="tutor_age" value="<?php echo $row['age']?>">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Tutor Cetificate:</label>
-                            <input type="text" class="form-control" name="tutor_certificate" placeholder="Highest Certificate">
+                            <input type="text" class="form-control" name="tutor_certificate" value="<?php echo $row['certificate']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">Subject Tutoring:</label>
-                            <input type="text" class="form-control" name="tutor_subject" placeholder="Tutor Subject">
+                            <input type="text" class="form-control" name="tutor_subject" value="<?php echo $row['subject_tutoring']?>">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Tutor Email:</label>
-                            <input type="text" class="form-control" name="tutor_email" placeholder="Tutor Email">
+                            <input type="text" class="form-control" name="tutor_email" value="<?php echo $row['tutor_email']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">Tutor Address:</label>
-                            <input type="text" class="form-control" name="tutor_address" placeholder="Tutor Address">
+                            <input type="text" class="form-control" name="tutor_address" value="<?php echo $row['tutor_address']?>">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Phone Number:</label>
-                            <input type="text" class="form-control" name="tutor_phone" placeholder="Phone Number">
-                        </div>
-                        <div class="col">
-                            <label class ="form-label">Tutor Password:</label>
-                            <input type="password" class="form-control" name="tutor_pwd" placeholder="Tutor Password">
+                            <input type="text" class="form-control" name="tutor_phone" value="<?php echo $row['tutor_phone']?>">
                         </div>
                     </div>
 
                     <div class="form-group mb-3">
                         <label>Gender</label>&nbsp;
-                        <input type="radio" class="form-check-input" name="tutor_gender" id="male" value="male">
+                        <input type="radio" class="form-check-input" name="tutor_gender" id="male" value="male" <?php echo ($row['gender']=='male')?"checked":""; ?>>
                         <label for="male" class="form-input-label">Male</label>
                         &nbsp;
-                        <input type="radio" class="form-check-input" name="tutor_gender" id="female" value="female">
+                        <input type="radio" class="form-check-input" name="tutor_gender" id="female" value="female" <?php echo ($row['gender']=='female')?"checked":""; ?>>
                         <label for="female" class="form-input-label">Female</label>
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success" name="submit">Save</button>
-                        <a href="dashboard.php?msg=No User Added!" class="btn btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-success" name="submit">Update</button>
+                        <a href="dashboard.php?msg=No changes made to <?php echo $row['tutor_name']?>'s Records!" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
