@@ -9,7 +9,7 @@
 	  						<div class="footer_1i">
 	    						<div class="top_1l">
 									<h4 class="mb-0"><a class="text-white" href="index.html"><span class="span_1 text-uppercase"><i class="fa fa-graduation-cap text-white fs-2 align-middle col_brown"></i>TUTOR</span> <br> <span class="font_12 span_2 text-light fw-normal">Finder System</span></a></h4>
-	  								<p class="text-light mt-4">The best way is to develop and follow a plan. Start with your goals in mind and then work backward to develop the plan.</p>
+	  								<p class="text-light mt-4">Tutoring is one of the most effectve tools for helpng students recover lost education.. <br> All students deserves the one-on-one coaching that only tutoring can provide.</p>
 								</div>
 	  						</div>
 	 					</div>

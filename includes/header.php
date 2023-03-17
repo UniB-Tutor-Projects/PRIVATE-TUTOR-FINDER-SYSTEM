@@ -44,10 +44,11 @@
 		<div class="col-md-4">
 		 <div class="top_1ri1">
 		  <span class="d-inline-block text-center border_1 span_1 rounded-circle float-start me-2"><i class="fa fa-map-marker"></i></span>
-		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Our Location</span> <br> Up Station Bamenda</h6>
+		  <h6 class="font_14 mb-0"><span class="span_2 fw-bold d-inline-block mb-1">Our Location</span> <br> Up Station Bamenda,Cameroon.</h6>
 		 </div>
 		</div>
 	   </div>
+     
 	</div>
    </div>
   </div>
@@ -57,7 +58,7 @@
 <section id="header">
 	<nav class="navbar navbar-expand-md navbar-light bg_light p-0" id="navbar_sticky">
   <div class="container-xl">
-    <a class="col_brown navbar-brand p-0  fw-bold me-5" href="index.html"><span class="span_1 text-uppercase"><i class="fa fa-graduation-cap text-dark fs-2 align-middle"></i> Academy</span> <br> <span class="font_12 span_2 text-muted fw-normal">University & College</span></a>
+    <a class="col_brown navbar-brand p-0  fw-bold me-5" href="index.html"><span class="span_1 text-uppercase"><i class="fa fa-graduation-cap text-dark fs-2 align-middle"></i> Tutor Finder</span> <br> <span class="font_12 span_2 text-muted fw-normal"></span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -65,11 +66,11 @@
 	   <ul class="navbar-nav mb-0">
 	    
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
 		 
 		<li class="nav-item">
-          <a class="nav-link" href="">About </a>
+          <a class="nav-link" href="about.php">About </a>
         </li>
 
 		<li class="nav-item dropdown">
@@ -77,47 +78,33 @@
             Blog
           </a>
           <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Blog</a></li>
+            <li><a class="dropdown-item" href="blog.php"><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Blog</a></li>
             <li><a class="dropdown-item border-0" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Blog Detail</a></li>
           </ul>
         </li>
 		
 		<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="tutors.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tutors
           </a>
           <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Tutors</a></li>
+            <li><a class="dropdown-item" href="tutors.php"><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Tutors</a></li>
             <li><a class="dropdown-item border-0" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Tutors Detail</a></li>
           </ul>
         </li>
 		
-	<!--	<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Events
-          </a>
-          <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Events</a></li>
-            <li><a class="dropdown-item border-0" href=""><i class="fa fa-chevron-right font_8 me-1 align-middle"></i> Event Detail</a></li>
-          </ul>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="t">Team </a>
-        </li>
--->
-		
 		
 		<li class="nav-item">
-          <a class="nav-link" href="">Contact </a>
+          <a class="nav-link" href="contact.php">Contact </a>
         </li>
 
-      <!--</ul>
+      </ul>
        <ul class="navbar-nav mb-0 ms-auto">
 		
 		<li class="nav-item">
-          <a class="button_1" href="#">Get a Quote </a>
+          <a class="button_1" href="form/forms.php">Login </a>
         </li>
--->
+
       </ul>
     </div>
 	  </div>

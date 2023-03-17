@@ -226,55 +226,22 @@
 	   <div class="about_h1l1 clearfix">
 	    <img src="img/11.jpg" class="rounded-3" alt="abc">
 	   </div>
-	   <div class="about_h1l2 clearfix position-absolute w-100 text-end">
+	 <!--  <div class="about_h1l2 clearfix position-absolute w-100 text-end">
 	     <img src="img/12.jpg" class="rounded-3" alt="abc">
-	   </div>
+	   </div>-->
 	 </div>
 	</div>
 	<div class="col-md-6">
 	 <div class="about_h1r">
-	  <h2>Higher Education Begins Here</h2>
-	  <p class="mt-3 fs-5">Commitment is something that comes from understanding that everything has its price and then having the willingness to pay that price.</p>
-	  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin pellentesque et non erat maecenas nibh dolor, malesuada et bibendum a, sagittis accumsan ipsum pellentesque ultrices ultrices sapien.</p>
+	  <h2>Private Tutoring Begins Here</h2>
+	  <p class="mt-3 fs-5">Private tutuoring is addtional to school and usually takes place outside odf school hours. Tutoring normally takes place in the evenngs or at weekends.</p>
+	  <p>Tutors who work with a variety of students, from those who are particularly struggling with areas of learning, to those who are lookng for a challenge. It can either be onlinelne or face to face.</p>
 	  <h6 class="fw-bold mt-4"><i class="fa fa-check-circle col_brown align-middle me-2"></i>  Full Lifetime Access</h6>
-	  <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown  align-middle me-2"></i>   30+ Downloadable Resources</h6>
-	   <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown align-middle me-2"></i>  Certificate Of Completion</h6>
-	  <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown  align-middle me-2"></i>   Free Trial 10 Days</h6>
-	  <h6 class="mb-0 mt-4"><a class="button" href="#">Read More</a></h6>
+	  <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown  align-middle me-2"></i>   Reliable Resources</h6>
+	  <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown  align-middle me-2"></i>   One-on-one Guidiance</h6>
+	  <h6 class="fw-bold mt-3"><i class="fa fa-check-circle col_brown  align-middle me-2"></i>   Build important learning skills</h6>
+
 	 </div>
-	</div>
-   </div>
-   <div class="about_h2 row">
-    <div class="col-md-6">
-	  <div class="about_h2l">
-	   <h3>Let's Have a Look at Our Activity and Skills</h3>
-	   <p class="mt-3">Along with your plans, you should consider developing an action orientation that will keep you motivated to move forward at all times.</p>
-	   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer adipiscing erat eget risus sollicitudin pellentesque et non erat maecenas nibh dolor, malesuada et bibendum a, sagittis accumsan ipsum pellentesque ultrices ultrices sapien.</p>
-	  </div>
-	</div>
-	<div class="col-md-6">
-	  <div class="about_h2r">
-	      <h6 class="mt-4">Design   <span class="float-end col_pink">86%</span></h6>
-	   <div class="progress-bar mt-3">
-			<div class="progress" style="width:86%;">
-			</div>
-		</div>
-		<h6 class="mt-4">Development  <span class="float-end col_pink">71%</span></h6>
-	   <div class="progress-bar mt-3">
-			<div class="progress" style="width:71%;">
-			</div>
-		</div>
-		<h6 class="mt-4">Support<span class="float-end col_pink">82%</span></h6>
-	   <div class="progress-bar mt-3">
-			<div class="progress" style="width:82%;">
-			</div>
-		</div>
-		<h6 class="mt-4">Marketing  <span class="float-end col_pink">66%</span></h6>
-	   <div class="progress-bar mt-3">
-			<div class="progress" style="width:66%;">
-			</div>
-		</div>
-	  </div>
 	</div>
    </div>
  </div>
@@ -288,7 +255,7 @@
 	   <div class="center_h1r rounded-3">
 	   <div class="event_1li bg_brown p-4">
 	      <h3 class="text-white">Get Started Here</h3>
-	  <p class="text-light mb-0">Success isn’t really that difficult.</p>
+	  <p class="text-light mb-0">Register as a Student.</p>
 	   </div>
 	  <div class="event_1li1 bg-white p-4 pt-5 pb-5">
 	    <h6 class="mb-2 fw-bold font_14">Full Name</h6>
@@ -296,10 +263,8 @@
 	  <h6 class="mb-2 mt-3 fw-bold font_14">Email Address</h6>
 	  <input class="form-control" type="text">
 	   <h6 class="mb-2 mt-3 fw-bold font_14">Your Phone</h6>
-	  <input class="form-control" type="text">
-	   <h6 class="mb-2 mt-3 fw-bold font_14">Subject</h6>
-	  <input class="form-control" type="text">
-  <h6 class="mb-0 mt-4"><a class="button" href="#">Submit Now</a></h6>
+	  	  <input class="form-control" type="text">
+ 		 <h6 class="mb-0 mt-4"><a class="button" href="dashboard.php">Submit Now</a></h6>
 	  </div>
 	 </div>
 	 </div>
@@ -307,50 +272,9 @@
 	
    </div>
  </div> 
+ 
 </section>
 
-<section id="prize">
- <div class="container-fluid p-0">
-    <div class="prize_1 row mx-0">
-     <div class="col-md-6 p-0">
-	  <div class="prize_1l bg_dark">
-	   <div class="prize_1li row">
-	    <div class="col-md-4">
-		 <div class="prize_1lil">
-		  <span class="d-inline-block rounded-circle text-center bg-white font_60"><i class="fa fa-trophy"></i></span>
-		 </div>
-		</div>
-		<div class="col-md-8">
-		 <div class="prize_1lir">
-		  <h3 class="text-white">Prize Giving Ceremony</h3>
-		  <p class="text-light mt-3">We all carry a lot of baggage, thanks to our upbringing. The majority of people carry with them, an entire series of self-limiting beliefs that will absolutely stop, and hold them back from, success.</p>
-		   <h6 class="mb-0 mt-4"><a class="button bg-white text-black" href="#">Read  More</a></h6>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-	 </div>
-	 <div class="col-md-6 p-0">
-	  <div class="prize_1l bg_brown">
-	   <div class="prize_1li row">
-	    <div class="col-md-4">
-		 <div class="prize_1lil">
-		  <span class="d-inline-block rounded-circle text-center bg-white font_60"><i class="fa fa-trophy"></i></span>
-		 </div>
-		</div>
-		<div class="col-md-8">
-		 <div class="prize_1lir">
-		  <h3 class="text-white">E-Learning Program</h3>
-		  <p class="text-light mt-3">We all carry a lot of baggage, thanks to our upbringing. The majority of people carry with them, an entire series of self-limiting beliefs that will absolutely stop, and hold them back from, success.</p>
-		   <h6 class="mb-0 mt-4"><a class="button bg-white text-black" href="#">Read  More</a></h6>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-	 </div>
-	</div>
- </div>
-</section>
 
 
 
