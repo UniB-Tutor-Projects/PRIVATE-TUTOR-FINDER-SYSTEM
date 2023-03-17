@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
- 
-=======
 <?php
     require('includes/display_data.php');
     
@@ -56,4 +53,3 @@
             </div>
         </div>
     </div>
->>>>>>> Stashed changes

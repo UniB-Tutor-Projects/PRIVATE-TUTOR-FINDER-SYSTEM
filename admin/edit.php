@@ -1,6 +1,7 @@
 <?php
 
 include('../includes/databaseconnection.php');
+$id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
     $user_name = $_POST['user_name'];
@@ -11,7 +12,7 @@ if (isset($_POST['submit'])) {
     $user_address = $_POST['user_address'];
     $user_pwd = $_POST['user_pwd'];
 
-    if (empty($user_name)||empty($user_email)||empty($user_pwd)||empty($user_address)||empty($user_gender)) {
+    if (empty($user_name)||empty($user_email)||empty($user_address)||empty($user_gender)) {
 		
 		header("Location: dashboard.php?msg=Empty Fields");
 		exit();
@@ -33,38 +34,12 @@ if (isset($_POST['submit'])) {
 	}
 
     else{
-        $sql = "SELECT user_name FROM users where user_name = ?";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-		echo "Failed: ".mysqli_error($conn);
-	    }
-        else{
-            mysqli_stmt_bind_param($stmt, "s", $user_name);
-		    mysqli_stmt_execute($stmt);
-
-		    mysqli_stmt_store_result($stmt);
-
-		    $resultCheck = mysqli_stmt_num_rows($stmt);
-
-		    if ($resultCheck>0) {
-			    header("Location: dashboard.php?msg=User Name Taken");
-			    exit();
-            }
         
-            else{
-                $sql = "INSERT INTO users(user_name, age, gender, phone_number,email,address,user_pwd) VALUES(?,?,?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "Failed: ".mysqli_error($conn);
-                }
-                else{
-                    $hashedPwd = password_hash($user_pwd, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt,"sssssss",$user_name,$user_age,$user_gender,$user_phone,$user_email,$user_address,$hashedPwd);
-                    mysqli_stmt_execute($stmt);
-                    header("Location: dashboard.php?msg=New record created successfully!");
-                    exit();
-                }
-            }
+        $sql = "UPDATE `users` SET `user_name`='$user_name',`age`='$user_age',`gender`='$user_gender',`phone_number`='$user_phone',`email`='$user_email',`address`='$user_address' WHERE user_id = $id";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            header("Location: dashboard.php?msg=Data Updated successfully!");
+            exit();
         }
     }
 }
@@ -88,55 +63,60 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
             <div class="text-center" mb-4>
-                <h3>Add New User</h3>
-                <p>Complete the below form to add a new User!</p>
+                <h3>Edit User Information</h3>
+                <p class="text-muted">Click Update After Changing Any Information!</p>
             </div>
+
+            <?php
+               
+                $sql = "SELECT * FROM users WHERE user_id = $id LIMIT 1";
+                $result = mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($result);
+
+            ?>
 
             <div class="container d-flex justify-content-center">
                 <form action="" method="post" style="width: 50vw; min-width: 300px;">
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">User Name:</label>
-                            <input type="text" class="form-control" name="user_name" placeholder="User Name">
+                            <input type="text" class="form-control" name="user_name" value="<?php echo $row['user_name']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">User Age:</label>
-                            <input type="text" class="form-control" name="user_age" placeholder="Age">
+                            <input type="text" class="form-control" name="user_age" value="<?php echo $row['age']?>">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">User Email:</label>
-                            <input type="text" class="form-control" name="user_email" placeholder="User Email">
+                            <input type="text" class="form-control" name="user_email" value="<?php echo $row['email']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">User Address:</label>
-                            <input type="text" class="form-control" name="user_address" placeholder="User Address">
+                            <input type="text" class="form-control" name="user_address" value="<?php echo $row['address']?>">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Phone Number:</label>
-                            <input type="text" class="form-control" name="user_phone" placeholder="Phone Number">
+                            <input type="text" class="form-control" name="user_phone" value="<?php echo $row['phone_number']?>">
                         </div>
-                        <div class="col">
-                            <label class ="form-label">User Password:</label>
-                            <input type="password" class="form-control" name="user_pwd" placeholder="User Password">
-                        </div>
+                        
                     </div>
 
                     <div class="form-group mb-3">
                         <label>Gender</label>&nbsp;
-                        <input type="radio" class="form-check-input" name="user_gender" id="male" value="male">
+                        <input type="radio" class="form-check-input" name="user_gender" id="male" value="male" <?php echo ($row['gender']=='male')?"checked":""; ?>>
                         <label for="male" class="form-input-label">Male</label>
                         &nbsp;
-                        <input type="radio" class="form-check-input" name="user_gender" id="female" value="female">
+                        <input type="radio" class="form-check-input" name="user_gender" id="female" value="female" <?php echo ($row['gender']=='female')?"checked":""; ?>>
                         <label for="female" class="form-input-label">Female</label>
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success" name="submit">Save</button>
+                        <button type="submit" class="btn btn-success" name="submit">Update</button>
                         <a href="dashboard.php" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>

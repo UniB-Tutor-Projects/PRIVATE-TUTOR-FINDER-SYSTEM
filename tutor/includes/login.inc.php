@@ -1,47 +1,47 @@
 <?php
 
-if (isset($_POST['admin_login_submit'])) {
+if (isset($_POST['tutor_login_submit'])) {
     require(dirname(__FILE__).'/../../includes/databaseconnection.php');
 
-   $adminName = $_POST['admin_name'];
-   $password = $_POST['admin_pwd'];
+   $tutorName = $_POST['tutor_name'];
+   $password = $_POST['tutor_pwd'];
 
-   if (empty($adminName) || empty($password)) {
-    header("Location ../login.php?error=emptyfields");
+   if (empty($tutorName) || empty($password)) {
+    header("Location ../tutor.php?error=emptyfields");
     exit();
    }
    else{
-    $sql = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?; ";
+    $sql = "SELECT * FROM tutor WHERE tutor_name = ? AND tutor_pwd = ?; ";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../login.php?error=sqlerror");
+        header("Location: ../tutor.php?error=sqlerror");
         exit();
     }
     else {
         
-        mysqli_stmt_bind_param($stmt ,"ss", $adminName, $password);
+        mysqli_stmt_bind_param($stmt ,"ss", $tutorName, $password);
         mysqli_stmt_execute($stmt);
 
         $result = mysqli_stmt_get_result($stmt);
 
         if ($row = mysqli_fetch_assoc($result)) {
-            $pwdCheck = password_verify($password, $row['admin_password']);
+            $pwdCheck = password_verify($password, $row['tutor_pwd']);
 
             if ($pwdCheck==false) {
-                header("Location: ../login.php?erro=wrongpwd");
+                header("Location: ../tutor.php?erro=wrongpwd");
                 exit();
             }
             else if ($pwdCheck == true) {
                 session_start();
-                $_SESSION['adminName'] = $row['admin_name'];
+                $_SESSION['tutorName'] = $row['tutor_name'];
                 $_SESSION["logged"] = true;
-                $_SESSION['adminPwd'] = $row['admin_password'];
+                $_SESSION['tutorPwd'] = $row['tutor_pwd'];
                 header("Location: ../dashboard.php?login=success");
                 exit();
             }
             else{
-                header("Location: ../login.php?error=wrongpwd");
+                header("Location: ../tutor.php?error=wrongpwd");
             }
         }
         else{
