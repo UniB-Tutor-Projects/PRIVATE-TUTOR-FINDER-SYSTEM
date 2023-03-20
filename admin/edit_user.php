@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
         $sql = "UPDATE `users` SET `user_name`='$user_name',`age`='$user_age',`gender`='$user_gender',`phone_number`='$user_phone',`email`='$user_email',`address`='$user_address' WHERE user_id = $id";
         $result = mysqli_query($conn, $sql);
         if($result){
-            header("Location: dashboard.php?msg=Data Updated successfully!");
+            header("Location: dashboard.php?msg=User Data Updated successfully!");
             exit();
         }
     }
@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
 
                     <div>
                         <button type="submit" class="btn btn-success" name="submit">Update</button>
-                        <a href="dashboard.php?msg=No Changes Made to <?php echo $row['user_name'] ?>'s Records!" class="btn btn-danger">Cancel</a>
+                        <a href="dashboard.php?msg=No Changes Made to User <?php echo $row['user_name'] ?>'s Records!" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

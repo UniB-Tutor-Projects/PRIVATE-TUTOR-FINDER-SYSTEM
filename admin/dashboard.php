@@ -1,5 +1,6 @@
 <?php
   session_start();
+
 ?>
 
 
@@ -139,16 +140,6 @@
       </div>
 
       <div class="container">
-
-        <?php
-          if (isset($_GET['msg'])) {
-            $msg = $_GET['msg'];
-            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-          '.$msg.'
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-          }
-        ?>
         <a href="add_tutor.php" class="btn btn-dark mb-3">Add Tutor</a>
 
         <table class="table table-hover text-center"> 
@@ -188,6 +179,98 @@
                   <td>
                     <a href="edit_tutor.php?id=<?php echo $row['tutor_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
                     <a href="delete_tutor.php?id=<?php echo $row['tutor_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                  </td>
+                </tr>
+
+                <?php
+              }
+            ?>
+      
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container">
+        
+
+        
+        <a href="add_appointment.php" class="btn btn-dark mb-3">Add Appointment</a>
+
+        <table class="table table-hover text-center"> 
+          <thead class="table-dark">
+            <tr>
+              <td scope="col">ID</td>
+              <td scope="col">Tutor Id</td>
+              <td scope="col">Subject Id</td>
+              <td scope="col">Start Time</td>
+              <td scope="col">Stop Time</td>
+              <td scope="col">Appointment Date</td>
+              <td scope="col">Actions</td>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <?php
+                include('../includes/databaseconnection.php');
+                $sql = "SELECT * FROM appointment";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <tr>
+                  <td><?php echo $row['appointment_id']; ?></td>
+                  <td><?php echo $row['tutor_id']; ?></td>
+                  <td><?php echo $row['subject_id']; ?></td>
+                  <td><?php echo $row['appointment_time_start']; ?></td>
+                  <td><?php echo $row['appointment_time_end']; ?></td>
+                  <td><?php echo $row['appointment_date']; ?></td>
+                  <td>
+                    <a href="edit_appointment.php?id=<?php echo $row['appointment_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+                    <a href="delete_appointment.php?id=<?php echo $row['appointment_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                  </td>
+                </tr>
+
+                <?php
+              }
+            ?>
+      
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container">
+        
+
+        
+        <a href="add_subject.php" class="btn btn-dark mb-3">Add Subject</a>
+
+        <table class="table table-hover text-center"> 
+          <thead class="table-dark">
+            <tr>
+              <td scope="col">ID</td>
+              <td scope="col">Subject Name</td>
+              <td scope="col">Subject Code</td>
+              <td scope="col">Tutor Id</td>
+              <td scope="col">Actions</td>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <?php
+                include('../includes/databaseconnection.php');
+                $sql = "SELECT * FROM subject";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <tr>
+                  <td><?php echo $row['subject_id']; ?></td>
+                  <td><?php echo $row['subject_name']; ?></td>
+                  <td><?php echo $row['subject_code']; ?></td>
+                  <td><?php echo $row['tutor_id']; ?></td>
+                  <td>
+                    <a href="edit_subject.php?id=<?php echo $row['subject_id']; ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-3 me-3"></i></a>
+                    <a href="delete_subject.php?id=<?php echo $row['subject_id']; ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
                   </td>
                 </tr>
 

@@ -87,9 +87,9 @@ if (isset($_POST['submit'])) {
         </nav>
 
         <div class="container">
-            <div class="text-center" mb-4>
+            <div class="text-center mb-4" >
                 <h3>Add New User</h3>
-                <p>Complete the below form to add a new User!</p>
+                <p class="text-muted">Complete the below form to add a new User!</p>
             </div>
 
             <div class="container d-flex justify-content-center">

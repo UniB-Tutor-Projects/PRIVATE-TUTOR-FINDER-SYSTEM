@@ -1,9 +1,9 @@
 <?php
-    require_once('includes/header.php');
+    require_once('../header.php');
 ?>
 
 <!-- Remaining Code Goes here-!>
 
 <?php
-    require_once('includes/footer.php');
+    require_once('../footer.php');
 ?>

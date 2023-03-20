@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
         $sql = "UPDATE `tutor` SET `tutor_name`='$tutor_name',`age`='$tutor_age',`gender`='$tutor_gender',`certificate`='$tutor_certificate',`subject_tutoring`='$tutor_subject',`tutor_phone`='$tutor_phone',`tutor_email`='$tutor_email',`tutor_address`='$tutor_address' WHERE tutor_id=$id";
         $result = mysqli_query($conn, $sql);
         if($result){
-            header("Location: dashboard.php?msg=Data Updated successfully!");
+            header("Location: dashboard.php?msg=Tutor Data Updated successfully!");
             exit();
         }
     }
@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
 
                     <div>
                         <button type="submit" class="btn btn-success" name="submit">Update</button>
-                        <a href="dashboard.php?msg=No changes made to <?php echo $row['tutor_name']?>'s Records!" class="btn btn-danger">Cancel</a>
+                        <a href="dashboard.php?msg=No changes made to Tutor <?php echo $row['tutor_name']?>'s Records!" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

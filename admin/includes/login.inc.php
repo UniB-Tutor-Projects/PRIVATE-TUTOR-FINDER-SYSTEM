@@ -1,55 +1,32 @@
 <?php
+require(dirname(__FILE__).'/../../includes/databaseconnection.php');
 
 if (isset($_POST['admin_login_submit'])) {
-    require(dirname(__FILE__).'/../../includes/databaseconnection.php');
+    
 
-   $adminName = $_POST['admin_name'];
-   $password = $_POST['admin_pwd'];
+   $adminName = mysqli_real_escape_string($conn, $_POST['admin_name']);
+   $password = mysqli_real_escape_string($conn, $_POST['admin_pwd']);
+
 
    if (empty($adminName) || empty($password)) {
-    header("Location ../login.php?error=emptyfields");
-    exit();
-   }
-   else{
-    $sql = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?; ";
-    $stmt = mysqli_stmt_init($conn);
-
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../login.php?error=sqlerror");
+        header("Location: ../login.php?error=emptyfields");
         exit();
-    }
-    else {
-        
-        mysqli_stmt_bind_param($stmt ,"ss", $adminName, $password);
-        mysqli_stmt_execute($stmt);
-
-        $result = mysqli_stmt_get_result($stmt);
-
-        if ($row = mysqli_fetch_assoc($result)) {
-            $pwdCheck = password_verify($password, $row['admin_password']);
-
-            if ($pwdCheck==false) {
-                header("Location: ../login.php?erro=wrongpwd");
-                exit();
-            }
-            else if ($pwdCheck == true) {
-                session_start();
-                $_SESSION['adminName'] = $row['admin_name'];
-                $_SESSION["logged"] = true;
-                $_SESSION['adminPwd'] = $row['admin_password'];
-                header("Location: ../dashboard.php?login=success");
-                exit();
-            }
-            else{
-                header("Location: ../login.php?error=wrongpwd");
-            }
-        }
-        else{
-            header("Location: ../login.php?error=nouser");
-            exit();
-        }
-    }
    }
+   else {
+        $sql = "SELECT * FROM admin WHERE admin_name = '$adminName' AND admin_password = '".$password."'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result)>0) {
+            $row = mysqli_fetch_assoc($result);
+
+            if ($row['admin_name']===$adminName && $row['admin_password']===$password) {
+                $_SESSION['adminName'] = $row['admin_name'];
+                header("Location: ../dashboard.php");
+                exit();
+            }
+        }   
+    }
+   
 }
 else{
     header("Location: ../login.php");
