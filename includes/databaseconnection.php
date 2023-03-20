@@ -3,7 +3,7 @@
 $dbServerName = "localhost";
 $dbUserName = "root";
 $dbPassword = "";
-$dbName = "private tutor finder";
+$dbName = "private_tutor_finder_system";
 
 $conn = mysqli_connect($dbServerName,$dbUserName,$dbPassword,$dbName);
 

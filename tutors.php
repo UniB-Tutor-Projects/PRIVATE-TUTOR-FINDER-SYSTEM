@@ -72,7 +72,7 @@
 			<i class="fa fa-star-o"></i>
 			</span>
 			<hr>
-			<h6 class="font_14 fw-bold mb-0"><i class="fa fa-user col_brown me-1"></i>  <i class="fa fa-book col_brown me-1 ms-2"></i> 10 lessons <span class="text-decoration-line-through text-muted mx-1">FCFA25,000/hr</span> <span class="col_brown">FCFA15,000/hr</span></h6>
+			<h6 class="font_14 fw-bold mb-0"><i class="fa fa-user col_brown me-1"></i>  <i class="fa fa-book col_brown me-1 ms-2"></i> 10 lessons <span class="text-decoration-line-through text-muted mx-0">FCFA25,000/hr</span> <span class="col_brown">FCFA15,000/hr</span></h6>
 		   </div>
 		  </div>
 		 </div>
@@ -92,7 +92,7 @@
 		   </div>
 		   <div class="course_3im2 p-3 shadow_box">
 		    <h6><img src="img/10.jpg" class="rounded-circle me-2" alt="abc"> Chloe Brown</h6>
-			<h5 class="mt-3 mb-3"><a href="detail.html">Physical/Organic/Inorganc Chemistry</a></h5>
+			<h5 class="mt-3 mb-3"><a href="detail.html">Organic/Inorganc Chemistry</a></h5>
 			<span class="col_yell me-3">
 			<i class="fa fa-star"></i>
 			<i class="fa fa-star"></i>
@@ -101,7 +101,7 @@
 			<i class="fa fa-star-half-o"></i>
 			</span>
 			<hr>
-			<h6 class="font_14 fw-bold mb-0"><i class="fa fa-user col_brown me-1"></i> <i class="fa fa-book col_brown me-1 ms-2"></i> 20 lessons <span class="text-decoration-line-through text-muted mx-1">FCFA20,000/hr</span> <span class="col_brown">FCFA10,000/hr</span></h6>
+			<h6 class="font_14 fw-bold mb-0"><i class="fa fa-user col_brown me-1"></i> <i class="fa fa-book col_brown me-1 ms-2"></i> 20 lessons <span class="text-decoration-line-through text-muted mx-0">FCFA20,000/hr</span> <span class="col_brown">FCFA10,000/hr</span></h6>
 		   </div>
 		  </div>
 		 </div>
@@ -123,7 +123,7 @@
 		   </div>
 		   <div class="course_3im2 p-3 shadow_box">
 		    <h6><img src="img/8.jpg" class="rounded-circle me-2" alt="abc"> Ethna Pearl</h6>
-			<h5 class="mt-3 mb-3"><a href="detail.html">Mcrobiology</a></h5>
+			<h5 class="mt-3 mb-3"><a href="detail.html">Microbiology</a></h5>
 			<span class="col_yell me-3">
 			<i class="fa fa-star"></i>
 			<i class="fa fa-star"></i>
@@ -198,11 +198,11 @@
   <div class="pages mt-4 row text-center">
 		 <div class="col-md-12">
 		   <ul class="mb-0">
-			<li><a href="detail.html"><i class="fa fa-chevron-left"></i></a></li>
-			<li><a class="act" href="detail.html">1</a></li>
-			<li><a href="detail.html">2</a></li>
-			<li><a href="detail.html">3</a></li>
-			<li><a href="detail.html"><i class="fa fa-chevron-right"></i></a></li>
+			<li><a href=""><i class="fa fa-chevron-left"></i></a></li>
+			<li><a class="act" href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href=""><i class="fa fa-chevron-right"></i></a></li>
 		   </ul>
 		 </div>
 	 </div>
