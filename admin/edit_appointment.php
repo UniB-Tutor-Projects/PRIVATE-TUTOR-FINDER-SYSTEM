@@ -1,6 +1,7 @@
 <?php
 
 include('../includes/databaseconnection.php');
+$id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
     $tutor_id = $_POST['tutor_id'];
@@ -16,33 +17,27 @@ if (isset($_POST['submit'])) {
 	}
 
     else{
-       
-                $sql = "INSERT INTO `appointment`(`tutor_id`, `subject_id`, `appointment_time_start`, `appointment_time_end`, `appointment_date`) VALUES(?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "Failed: ".mysqli_error($conn);
-                }
-                else{
-                    $sqlCheckTutor = "SELECT * FROM tutor WHERE tutor_id='$tutor_id'";
-                    $valueTutor = mysqli_query($conn, $sqlCheckTutor);
+        $sqlCheckTutor = "SELECT * FROM tutor WHERE tutor_id='$tutor_id'";
+        $valueTutor = mysqli_query($conn, $sqlCheckTutor);
 
-                    $sqlCheckSubject = "SELECT * FROM subject WHERE subject_id='$subject_id'";
-                    $valueSubject = mysqli_query($conn, $sqlCheckSubject);
+        $sqlCheckSubject = "SELECT * FROM subject WHERE subject_id='$subject_id'";
+        $valueSubject = mysqli_query($conn, $sqlCheckSubject);
 
-                    $countSubjects = mysqli_num_rows($valueSubject);
+        $countSubjects = mysqli_num_rows($valueSubject);
 
-                    $countTutors = mysqli_num_rows($valueTutor);
-                    if ($countTutors==1 && $countSubjects==1) {
-                        mysqli_stmt_bind_param($stmt,"sssss",$tutor_id,$subject_id,$appointment_time_start, $appointment_time_end,$appointment_date);
-                        mysqli_stmt_execute($stmt);
-                        header("Location: dashboard.php?msg=New Appointment record created successfully!");
-                        exit();
-                    }
-                    else {
-                        header("Location: dashboard.php?msg=No Tutor exist with the Id ".$tutor_id.". Ensure that a tutor with this id exist, then try again!");
-                        exit();
-                    }
-                }
+        $countTutors = mysqli_num_rows($valueTutor);
+
+        if ($countTutors==1 && $countSubjects==1) {
+            $sql = "UPDATE `appointment` SET `tutor_id`='$tutor_id',`subject_id`='$subject_id',`appointment_time_start`='$appointment_time_start',`appointment_time_end`='$appointment_time_end',`appointment_date`='$appointment_date' WHERE appointment_id=$id";
+            $result = mysqli_query($conn,$sql);
+            header("Location: dashboard.php?msg=Appointment Data Updated Successfully!");
+            exit();
+        }
+
+        else {
+            header("Location: dashboard.php?msg=No Tutor exist with the Id ".$tutor_id.". Ensure that a tutor with this id exist, then try again!");
+            exit();
+        }
     }
 }
 ?>
@@ -55,7 +50,7 @@ if (isset($_POST['submit'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <title>Add Appointment</title>
+        <title>Edit Appointment</title>
     </head>
 
     <body>
@@ -65,8 +60,16 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
             <div class="text-center" mb-4>
-                <h3>Add New Appointment</h3>
-                <p class="text-muted">Complete the below form to add a new Appointment!</p>
+                <h3>Edit Appointment Information</h3>
+                <p class="text-muted">Click Update after updating any information!</p>
+
+                <?php
+               
+                    $sql = "SELECT * FROM appointment WHERE appointment_id = $id LIMIT 1";
+                    $result = mysqli_query($conn,$sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                ?>
             </div>
 
             <div class="container d-flex justify-content-center">
@@ -74,35 +77,35 @@ if (isset($_POST['submit'])) {
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Tutor ID:</label>
-                            <input type="text" class="form-control" name="tutor_id" placeholder="Tutor ID">
+                            <input type="text" class="form-control" name="tutor_id" value="<?php echo $row['tutor_id']?>">
                         </div>
                         <div class="col">
                             <label class ="form-label">Subject ID:</label>
-                            <input type="text" class="form-control" name="subject_id" placeholder="Subject ID">
+                            <input type="text" class="form-control" name="subject_id" value="<?php echo $row['subject_id']?>">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Start Time:</label>
-                            <input type="time" class="form-control" name="appointment_time_start" placeholder="Start Time">
+                            <input type="time" class="form-control" name="appointment_time_start" value="<?php echo $row['appointment_time_start']?>">
                         </div>
 
                         <div class="col">
                             <label class ="form-label">Stop Time:</label>
-                            <input type="time" class="form-control" name="appointment_time_end" placeholder="Stop Time">
+                            <input type="time" class="form-control" name="appointment_time_end" value="<?php echo $row['appointment_time_end']?>">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label class ="form-label">Appointment Date:</label>
-                            <input type="date" class="form-control" name="appointment_date" placeholder="Appointment Date">
+                            <input type="date" class="form-control" name="appointment_date" value="<?php echo $row['appointment_date']?>">
                         </div>
                     </div>
 
                     <div>
                         <button type="submit" class="btn btn-success" name="submit">Save</button>
-                        <a href="dashboard.php?msg=No Appoinement Added!" class="btn btn-danger">Cancel</a>
+                        <a href="dashboard.php?msg=No Changes made to Appointment with ID <?php echo $row['appointment_id'].'!' ?>" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

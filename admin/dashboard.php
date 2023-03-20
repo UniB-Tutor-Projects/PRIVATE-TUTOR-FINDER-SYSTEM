@@ -35,7 +35,11 @@
         </div>
         <div class="header-icons-group">
           <div class="c-header-icon basket"><span class="c-badge c-badge--blue c-badge--header-icon animated swing">4</span><i class="fa fa-shopping-basket"></i></div>
-          <div class="c-header-icon logout"><a href="#"><i class="fa fa-power-off"></i></a></div>
+          <div class="c-header-icon logout">
+            <form action="../includes/logout.php" method="post" class="c-header-icon logout">
+              <button class="c-header-icon logout" type="submit" name="logout-submit" style="border:none;"><a href="#"><i class="fa fa-power-off"></i></a></button>  
+            </form>
+          </div>
         </div>
       </div>
     </header>
@@ -48,23 +52,23 @@
           <ul class="u-list">
             <li class="c-menu__item is-active" data-toggle="tooltip" title="Flights">
               <div class="c-menu__item__inner"><i class="fa fa-plane"></i>
-                <div class="c-menu-item__title"><span>Appointments</span></div>
+                <div class="c-menu-item__title"><span>Users</span></div>
               </div>
             </li>
            
             <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Statistics">
               <div class="c-menu__item__inner"><i class="far fa-chart-bar"></i>
-                <div class="c-menu-item__title"><span>Users</span></div>
+                <div class="c-menu-item__title"><span>Tutors</span></div>
               </div>
             </li>
             <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gifts">
               <div class="c-menu__item__inner"><i class="fa fa-gift"></i>
-                <div class="c-menu-item__title"><span>Tutors</span></div>
+                <div class="c-menu-item__title"><span>Appointments</span></div>
               </div>
             </li>
             <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
               <div class="c-menu__item__inner"><i class="fa fa-cogs"></i>
-                <div class="c-menu-item__title"><span>Settings</span></div>
+                <div class="c-menu-item__title"><span>Subjects</span></div>
               </div>
             </li>
           </ul>

@@ -1,7 +1,9 @@
 <?php
 
-session_start();
-session_unset();
-session_destroy();
+if (isset($_POST['logout-submit'])) {
+    session_start();
+    session_unset();
+    session_destroy();
 
-header("Loaction: ../index.php");
+    header("Location: ../index.php");
+}

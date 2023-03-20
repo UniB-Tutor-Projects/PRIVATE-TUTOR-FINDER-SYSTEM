@@ -19,7 +19,7 @@ if (isset($_POST['admin_login_submit'])) {
         if (mysqli_num_rows($result)>0) {
             $row = mysqli_fetch_assoc($result);
 
-            if ($row['admin_name']===$adminName && $row['admin_password']===$password) {
+            if ($row['admin_name']==$adminName && $row['admin_password']==$password) {
                 $_SESSION['adminName'] = $row['admin_name'];
                 header("Location: ../dashboard.php");
                 exit();
