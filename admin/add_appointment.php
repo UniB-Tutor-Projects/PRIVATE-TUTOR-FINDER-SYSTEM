@@ -17,32 +17,39 @@ if (isset($_POST['submit'])) {
 
     else{
        
-                $sql = "INSERT INTO `appointment`(`tutor_id`, `subject_id`, `appointment_time_start`, `appointment_time_end`, `appointment_date`) VALUES(?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "Failed: ".mysqli_error($conn);
-                }
-                else{
-                    $sqlCheckTutor = "SELECT * FROM tutor WHERE tutor_id='$tutor_id'";
-                    $valueTutor = mysqli_query($conn, $sqlCheckTutor);
+        $sql = "INSERT INTO `appointment`(`tutor_id`, `subject_id`, `appointment_time_start`, `appointment_time_end`, `appointment_date`) VALUES(?,?,?,?,?)";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "Failed: ".mysqli_error($conn);
+        }
+        else{
+            $sqlCheckTutor = "SELECT * FROM tutor WHERE tutor_id='$tutor_id'";
+            $valueTutor = mysqli_query($conn, $sqlCheckTutor);
 
-                    $sqlCheckSubject = "SELECT * FROM subject WHERE subject_id='$subject_id'";
-                    $valueSubject = mysqli_query($conn, $sqlCheckSubject);
+            $sqlCheckSubject = "SELECT * FROM subject WHERE subject_id='$subject_id'";
+            $valueSubject = mysqli_query($conn, $sqlCheckSubject);
+            $countSubjects = mysqli_num_rows($valueSubject);
 
-                    $countSubjects = mysqli_num_rows($valueSubject);
-
-                    $countTutors = mysqli_num_rows($valueTutor);
-                    if ($countTutors==1 && $countSubjects==1) {
-                        mysqli_stmt_bind_param($stmt,"sssss",$tutor_id,$subject_id,$appointment_time_start, $appointment_time_end,$appointment_date);
-                        mysqli_stmt_execute($stmt);
-                        header("Location: dashboard.php?msg=New Appointment record created successfully!");
-                        exit();
-                    }
-                    else {
-                        header("Location: dashboard.php?msg=No Tutor exist with the Id ".$tutor_id.". Ensure that a tutor with this id exist, then try again!");
-                        exit();
-                    }
-                }
+            $countTutors = mysqli_num_rows($valueTutor);
+            if ($countTutors==1 && $countSubjects==1) {
+                mysqli_stmt_bind_param($stmt,"sssss",$tutor_id,$subject_id,$appointment_time_start, $appointment_time_end,$appointment_date);
+                mysqli_stmt_execute($stmt);
+                header("Location: dashboard.php?msg=New Appointment record created successfully!");
+                exit();
+            }
+            else if($countTutors<1){
+                header("Location: dashboard.php?msg=No Tutor exist with the Id ".$tutor_id.". Ensure that a tutor with this id exist, then try again!");
+                exit();
+            }
+            else if($countSubjects<1){
+                header("Location: dashboard.php?msg=No Subject exist with the Id ".$subject_id.". Ensure that a Subject with this id exist, then try again!");
+                exit();
+            }
+            else {
+                header("Location: dashboard.php?msg=Some Error Occured!");
+                exit();
+            }
+        }
     }
 }
 ?>
