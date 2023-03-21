@@ -13,7 +13,7 @@ if (isset($_POST['admin_login_submit'])) {
         exit();
    }
    else {
-        $sql = "SELECT * FROM admin WHERE admin_name = '$adminName' AND admin_password = '".$password."'";
+        $sql = "SELECT * FROM admin WHERE admin_name = '$adminName' AND admin_password = '$password'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result)>0) {
@@ -21,7 +21,7 @@ if (isset($_POST['admin_login_submit'])) {
 
             if ($row['admin_name']==$adminName && $row['admin_password']==$password) {
                 $_SESSION['adminName'] = $row['admin_name'];
-                header("Location: ../dashboard.php");
+                header("Location: ../dashboard.php?error=noerror");
                 exit();
             }
         }   
