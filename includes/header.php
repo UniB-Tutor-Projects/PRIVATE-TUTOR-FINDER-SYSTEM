@@ -102,7 +102,9 @@
        <ul class="navbar-nav mb-0 ms-auto">
 		
 		<li class="nav-item">
-          <a class="button_1" href="form/forms.php">Login </a>
+          <a class="button_1" href="tutor/login.php">Login As Tutor</a>
+          <a class="button_1" href="users/login.php">Login As User</a>
+          <a class="button_1" href="admin/login.php">Login As Admin</a>
         </li>
 
       </ul>

@@ -247,30 +247,29 @@
 </section>
 
 <section id="event" class="p_3 bg_dark">
- <div class="container-xl">
-   <div class="event_1 row">
-    <div class="col-md-5">
-	 <div class="event_1l">
-	   <div class="center_h1r rounded-3">
-	   <div class="event_1li bg_brown p-4">
-	      <h3 class="text-white">Get Started Here</h3>
-	  <p class="text-light mb-0">Register as a Student.</p>
-	   </div>
-	  <div class="event_1li1 bg-white p-4 pt-5 pb-5">
-	    <h6 class="mb-2 fw-bold font_14">Full Name</h6>
-	  <input class="form-control" type="text">
-	  <h6 class="mb-2 mt-3 fw-bold font_14">Email Address</h6>
-	  <input class="form-control" type="text">
-	   <h6 class="mb-2 mt-3 fw-bold font_14">Your Phone</h6>
-	  	  <input class="form-control" type="text">
- 		 <h6 class="mb-0 mt-4"><a class="button" href="dashboard.php">Submit Now</a></h6>
-	  </div>
-	 </div>
-	 </div>
-	</div>
-	
-   </div>
- </div> 
+	<div class="container-xl">
+		<div class="event_1 row">
+			<div class="col-md-5">
+				<div class="event_1l">
+					<div class="center_h1r rounded-3">
+						<div class="event_1li bg_brown p-4">
+							<h3 class="text-white">Get Started Here</h3>
+						<p class="text-light mb-0">Register as a Student.</p>
+						</div>
+						<div class="event_1li1 bg-white p-4 pt-5 pb-5">
+							<h6 class="mb-2 fw-bold font_14">Full Name</h6>
+						<input class="form-control" type="text">
+						<h6 class="mb-2 mt-3 fw-bold font_14">Email Address</h6>
+						<input class="form-control" type="text">
+						<h6 class="mb-2 mt-3 fw-bold font_14">Your Phone</h6>
+							<input class="form-control" type="text">
+							<h6 class="mb-0 mt-4"><a class="button" href="dashboard.php">Submit Now</a></h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
  
 </section>
 
