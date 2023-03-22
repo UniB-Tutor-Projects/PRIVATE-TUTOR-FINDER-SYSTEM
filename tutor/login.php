@@ -40,6 +40,7 @@
                     <div>
                         <button type="submit" class="btn btn-success" name="tutor_login_submit">Login</button>
                         <a href="../index.php" class="btn btn-danger">Cancel</a>
+                        <a href="register.php" class="btn btn-submit">No account Yet! Sign Up</a>
                     </div>
                 </form>
             </div>

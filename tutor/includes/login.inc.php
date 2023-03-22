@@ -35,6 +35,7 @@ if (isset($_POST['tutor_login_submit'])) {
                 if ($pwdCheck) {
                     session_regenerate_id();
                     $_SESSION['tutorName'] = $row['tutor_name'];
+                    $_SESSION['tutorID'] = $row['tutor_id'];
                     $_SESSION['tutorPwd'] = $row['tutor_pwd'];
                     header("Location:../dashboard.php?login=success");
                     exit();
