@@ -54,16 +54,28 @@ if (isset($_POST['submit'])) {
             }
         
             else{
-                $sql = "INSERT INTO tutor(tutor_name, age, gender, certificate, subject_tutoring,tutor_phone,tutor_email,tutor_address,tutor_pwd) VALUES(?,?,?,?,?,?,?,?,?)";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "Failed: ".mysqli_error($conn);
+                $sqlCheckTutor = "SELECT * FROM subject WHERE LOWER(subject_name)='".$tutor_subject."'";
+                $value = mysqli_query($conn, $sqlCheckTutor);
+                $row = mysqli_fetch_assoc($value);
+
+                $count = mysqli_num_rows($value);
+
+                if ($count>0) {
+                    $sql = "INSERT INTO tutor(tutor_name, age, gender, certificate, subject_tutoring,tutor_phone,tutor_email,tutor_address,tutor_pwd) VALUES(?,?,?,?,?,?,?,?,?)";
+                    $stmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        echo "Failed: ".mysqli_error($conn);
+                    }
+                    else{
+                        $hashedPwd = password_hash($tutor_pwd, PASSWORD_DEFAULT);
+                        mysqli_stmt_bind_param($stmt,"sssssssss",$tutor_name,$tutor_age,$tutor_gender, $tutor_certificate,$row['subject_name'],$tutor_phone,$tutor_email,$tutor_address,$hashedPwd);
+                        mysqli_stmt_execute($stmt);
+                        header("Location: dashboard.php?msg=New Tutor record created successfully!");
+                        exit();
+                    }
                 }
                 else{
-                    $hashedPwd = password_hash($tutor_pwd, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt,"sssssssss",$tutor_name,$tutor_age,$tutor_gender, $tutor_certificate,$tutor_subject,$tutor_phone,$tutor_email,$tutor_address,$hashedPwd);
-                    mysqli_stmt_execute($stmt);
-                    header("Location: dashboard.php?msg=New Tutor record created successfully!");
+                    header("Location: dashboard.php?msg=No Subject such as ".$tutor_subject." exist in the subject table!");
                     exit();
                 }
             }

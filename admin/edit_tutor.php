@@ -36,11 +36,22 @@ if (isset($_POST['submit'])) {
 	}
 
     else{
+        $sqlCheckTutor = "SELECT * FROM subject WHERE LOWER(subject_name) = '".strtolower($tutor_subject)."'";
+        $value = mysqli_query($conn, $sqlCheckTutor);
+        $row = mysqli_fetch_assoc($value);
+
+        $count = mysqli_num_rows($value);
         
-        $sql = "UPDATE `tutor` SET `tutor_name`='$tutor_name',`age`='$tutor_age',`gender`='$tutor_gender',`certificate`='$tutor_certificate',`subject_tutoring`='$tutor_subject',`tutor_phone`='$tutor_phone',`tutor_email`='$tutor_email',`tutor_address`='$tutor_address' WHERE tutor_id=$id";
-        $result = mysqli_query($conn, $sql);
-        if($result){
-            header("Location: dashboard.php?msg=Tutor Data Updated successfully!");
+        if ($count>0) {
+            $sql = "UPDATE `tutor` SET `tutor_name`='$tutor_name',`age`='$tutor_age',`gender`='$tutor_gender',`certificate`='$tutor_certificate',`subject_tutoring`='".$row['subject_name']."',`tutor_phone`='$tutor_phone',`tutor_email`='$tutor_email',`tutor_address`='$tutor_address' WHERE tutor_id=$id";
+            $result = mysqli_query($conn, $sql);
+            if($result){
+                header("Location: dashboard.php?msg=Tutor Data Updated successfully!");
+                exit();
+            }
+        }
+        else {
+            header("Location: dashboard.php?msg=No Subject such as ".$tutor_subject." exist in the subject table!");
             exit();
         }
     }
