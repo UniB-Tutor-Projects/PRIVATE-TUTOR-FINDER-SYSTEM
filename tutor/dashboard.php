@@ -29,7 +29,11 @@
         </div>
         <div class="header-icons-group">
           <div class="c-header-icon basket"><span class="c-badge c-badge--blue c-badge--header-icon animated swing">4</span><i class="fa fa-shopping-basket"></i></div>
-          <div class="c-header-icon logout"><a href="#"><i class="fa fa-power-off"></i></a></div>
+            <div class="c-header-icon logout">
+              <form action="../includes/logout.php" method="post" class="c-header-icon logout">
+                <button class="c-header-icon logout" type="submit" name="logout-submit" style="border:none;"><a href="#"><i class="fa fa-power-off"></i></a></button>  
+              </form>
+            </div>
         </div>
       </div>
     </header>
