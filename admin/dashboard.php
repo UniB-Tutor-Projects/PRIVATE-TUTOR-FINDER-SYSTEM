@@ -9,12 +9,76 @@
 		<meta charset="utf-8">
 		<title>Admin Dashboard</title>
 		<link href="../css/dashboard.css" rel="stylesheet" type="text/css">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src='https://use.fontawesome.com/releases/v5.0.8/js/all.js'></script>		
+    <script src='https://use.fontawesome.com/releases/v5.0.8/js/all.js'></script>	
+
+    <style>
+            .card-counter{
+        box-shadow: 2px 2px 10px #DADADA;
+        margin: 5px;
+        padding: 20px 10px;
+        background-color: #fff;
+        height: 100px;
+        border-radius: 5px;
+        transition: .3s linear all;
+      }
+    
+      .card-counter:hover{
+        box-shadow: 4px 4px 20px #DADADA;
+        transition: .3s linear all;
+      }
+    
+      .card-counter.primary{
+        background-color: #007bff;
+        color: #FFF;
+      }
+    
+      .card-counter.danger{
+        background-color: #ef5350;
+        color: #FFF;
+      }  
+    
+      .card-counter.success{
+        background-color: #66bb6a;
+        color: #FFF;
+      }  
+    
+      .card-counter.info{
+        background-color: #26c6da;
+        color: #FFF;
+      }  
+    
+      .card-counter i{
+        font-size: 5em;
+        opacity: 0.2;
+      }
+    
+      .card-counter .count-numbers{
+        position: absolute;
+        right: 35px;
+        top: 20px;
+        font-size: 32px;
+        display: block;
+      }
+    
+      .card-counter .count-name{
+        position: absolute;
+        right: 35px;
+        top: 65px;
+        font-style: italic;
+        text-transform: capitalize;
+        opacity: 0.5;
+        display: block;
+        font-size: 18px;
+      }
+        </style>	
   </head>
 	</head>
   <body class="sidebar-is-reduced">
@@ -79,9 +143,68 @@
     <div class="content-wrapper content-wrapper--with-bg">
       <h1 class="page-title">Admin Dashboard</h1>
       <div class="page-content">Welcome back <em style="font-size: 18px; color: chartreuse;"><?php echo ucfirst($_SESSION['adminName']);?>!</em></div>
+
+      <?php
+        include('../includes/databaseconnection.php');
+        //Count Users
+        $sqlUser = "SELECT * FROM users";
+        $queryUser = mysqli_query($conn, $sqlUser);
+        $countUsers = mysqli_num_rows($queryUser);
+
+        //Count Tutors
+        $sqlTutor = "SELECT * FROM tutor";
+        $queryTutor = mysqli_query($conn, $sqlTutor);
+        $countTutors = mysqli_num_rows($queryTutor);
+
+        //Count Appointments
+
+        $sqlAppointment = "SELECT * FROM appointment";
+        $queryAppointment = mysqli_query($conn, $sqlAppointment);
+        $countAppointment = mysqli_num_rows($queryAppointment);
+
+        //Count Subjets
+        $sqlSubject = "SELECT * FROM subject";
+        $querySubject = mysqli_query($conn, $sqlSubject);
+        $countSubjects = mysqli_num_rows($querySubject);
+      ?>
       
+      <div class="container mt-3">
+        <div class="row mt-4">
+            <div class="col-md-3">
+              <div class="card-counter primary">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span class="count-numbers"><?php echo $countTutors; ?></span>
+                <span class="count-name">Tutors</span>
+              </div>
+            </div>
+        
+            <div class="col-md-3">
+              <div class="card-counter danger">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span class="count-numbers"><?php echo $countAppointment; ?></span>
+                <span class="count-name">Appointments</span>
+              </div>
+            </div>
+        
+            <div class="col-md-3">
+              <div class="card-counter success">
+                <i class="fa fa-database"></i>
+                <span class="count-numbers"><?php echo $countUsers; ?></span>
+                <span class="count-name">Users</span>
+              </div>
+            </div>
+        
+            <div class="col-md-3">
+              <div class="card-counter info">
+                <i class="fa fa-users"></i>
+                <span class="count-numbers"><?php echo $countSubjects; ?></span>
+                <span class="count-name">Subjects</span>
+             </div>
+            </div>
+        </div>
+    </div>
       
-      <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color:#00ff5573;">
+      <nav class="navbar navbar-light justify-content-center fs-3 mb-5 mt-4" style="background-color:#00ff5573;">
             View All Data Records!
       </nav>
 
