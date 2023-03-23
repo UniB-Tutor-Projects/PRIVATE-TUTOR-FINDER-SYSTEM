@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 
     <body>
         <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color:#00ff5573;">
-            Admin Dashboard!
+            Tutor SignUp Portal!
         </nav>
 
         <div class="container">
@@ -181,7 +181,7 @@ if (isset($_POST['submit'])) {
 
                     <div>
                         <button type="submit" class="btn btn-success" name="submit">SignUp</button>
-                        <a href="dashboard.php?msg=No Tutor Added!" class="btn btn-danger">Cancel</a>
+                        <a href="login.php?error=No Tutor Added!" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>

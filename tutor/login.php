@@ -19,7 +19,32 @@
             <div class="text-center mb-4">
                 <h3>Login as Tutor</h3>
                 <p class="text-muted">Complete the below form to Login into your Dashboard!</p>
+                <?php
+
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error']=="emptyfields") {
+                            echo '<div class="alert alert-warning alert-dismissible fade show" rolw="alert"><strong>Empty Fields</strong>
+                            </div>';
+                        }
+                        else if ($_GET['error']=="wrongpwd") {
+                            echo '<div class="alert alert-warning alert-dismissible fade show" rolw="alert"><strong>Wrong Password</strong>
+                            
+                            </div>';
+                        }
+                        else if ($_GET['error']=="nouser") {
+                            echo '<div class="alert alert-warning alert-dismissible fade show" rolw="alert"><strong>No Tutor exist with these Credentials</strong>
+                            
+                            </div>';
+                        }
+                        else if($_GET['error']=="No Tutor Added!"){
+                            echo '<div class="alert alert-warning alert-dismissible fade show" rolw="alert"><strong>No Tutor Added!</strong>
+                            
+                            </div>';
+                        }
+                    }
+                ?>
             </div>
+           
 
             <div class="container d-flex justify-content-center">
                 <form action="includes/login.inc.php" method="post" style="width: 50vw; min-width: 300px;">
